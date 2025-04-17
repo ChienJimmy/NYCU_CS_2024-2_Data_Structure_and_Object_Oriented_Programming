@@ -41,6 +41,29 @@ public:
         }
     }
 
+    // Delete the node the cursor points to
+    void deleteCursor() {
+        if (!cursor) return;
+        CNode* current = cursor;
+
+        // Case 1: Only one node
+        if (cursor->next == cursor) {
+            delete cursor;
+            cursor = nullptr;
+            return;
+        }
+
+        // Case 2: Find the node before cursor
+        CNode* prev = cursor;
+        while (prev->next != cursor)
+            prev = prev->next;
+
+        prev->next = cursor->next;
+        CNode* temp = cursor;
+        cursor = cursor->next;  // Move cursor forward
+        delete temp;
+    }
+
     // Move cursor to the next node
     void advance() {
         if (cursor) {
