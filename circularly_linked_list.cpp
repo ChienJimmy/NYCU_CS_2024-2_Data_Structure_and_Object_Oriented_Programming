@@ -11,85 +11,66 @@ public:
 
 class CircularLinkedList {
 private:
-    CNode* tail;
+    CNode* cursor;  // The cursor points to a node in the list
 
 public:
-    CircularLinkedList() : tail(nullptr) {}
+    CircularLinkedList() : cursor(nullptr) {}
 
-    void append(int val) {
+    // Insert a new node after the cursor
+    void insert(int val) {
         CNode* newNode = new CNode(val);
-        if (!tail) {
-            tail = newNode;
-            tail->next = tail;
-        } else {
-            newNode->next = tail->next;
-            tail->next = newNode;
-            tail = newNode;
-        }
-    }
-
-    void insertAt(int index, int val) {
-        CNode* newNode = new CNode(val);
-        if (!tail) {
-            tail = newNode;
+        if (!cursor) {
             newNode->next = newNode;
-            return;
+            cursor = newNode;
+        } else {
+            newNode->next = cursor->next;
+            cursor->next = newNode;
         }
-        CNode* temp = tail->next;
-        if (index == 0) {
-            newNode->next = temp;
-            tail->next = newNode;
-            return;
-        }
-        for (int i = 0; i < index - 1 && temp->next != tail->next; i++)
-            temp = temp->next;
-        newNode->next = temp->next;
-        temp->next = newNode;
-        if (temp == tail)
-            tail = newNode;
     }
 
-    void deleteVal(int val) {
-        if (!tail) return;
-        CNode* curr = tail->next;
-        CNode* prev = tail;
-        do {
-            if (curr->data == val) {
-                if (curr == tail && curr == tail->next) {
-                    delete curr;
-                    tail = nullptr;
-                } else {
-                    prev->next = curr->next;
-                    if (curr == tail)
-                        tail = prev;
-                    if (curr == tail->next)
-                        tail->next = curr->next;
-                    delete curr;
-                }
-                return;
-            }
-            prev = curr;
-            curr = curr->next;
-        } while (curr != tail->next);
+    // Delete the node after the cursor
+    void deleteNext() {
+        if (!cursor) return;
+        CNode* temp = cursor->next;
+        if (temp == cursor) { // Only one node
+            delete cursor;
+            cursor = nullptr;
+        } else {
+            cursor->next = temp->next;
+            delete temp;
+        }
     }
 
+    // Move cursor to the next node
+    void advance() {
+        if (cursor) {
+            cursor = cursor->next;
+        }
+    }
+
+    // Search for a value starting from cursor
     bool search(int val) {
-        if (!tail) return false;
-        CNode* temp = tail->next;
+        if (!cursor) return false;
+        CNode* temp = cursor;
         do {
             if (temp->data == val) return true;
             temp = temp->next;
-        } while (temp != tail->next);
+        } while (temp != cursor);
         return false;
     }
 
+    // Display all nodes starting from cursor
     void display() {
-        if (!tail) return;
-        CNode* temp = tail->next;
+        if (!cursor) {
+            cout << "(empty list)\n";
+            return;
+        }
+
+        CNode* start = cursor;
         do {
-            cout << temp->data << " -> ";
-            temp = temp->next;
-        } while (temp != tail->next);
-        cout << "(back to head)\n";
+            cout << start->data << " -> ";
+            start = start->next;
+        } while (start != cursor);
+        cout << "(back to cursor)\n";
     }
 };
