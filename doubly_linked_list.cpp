@@ -32,7 +32,17 @@ public:
         }
     }
 
-    void append(int val) {
+    void addFront(int val) {
+        DNode* newNode = new DNode(val);
+        DNode* first = head->next;
+
+        newNode->next = first;
+        newNode->prev = head;
+        head->next = newNode;
+        first->prev = newNode;
+    }
+
+    void addBack(int val) {
         DNode* newNode = new DNode(val);
         DNode* last = tail->prev;
 
@@ -42,19 +52,20 @@ public:
         tail->prev = newNode;
     }
 
-    void insertAt(int index, int val) {
-        DNode* newNode = new DNode(val);
-        DNode* current = head->next;
-        for (int i = 0; i < index && current != tail; ++i) {
-            current = current->next;
-        }
-        if (current == nullptr) return;
+    void removeFront() {
+        if (head->next == tail) return; // List is empty
+        DNode* first = head->next;
+        head->next = first->next;
+        first->next->prev = head;
+        delete first;
+    }
 
-        DNode* prevNode = current->prev;
-        prevNode->next = newNode;
-        newNode->prev = prevNode;
-        newNode->next = current;
-        current->prev = newNode;
+    void removeBack() {
+        if (tail->prev == head) return; // List is empty
+        DNode* last = tail->prev;
+        tail->prev = last->prev;
+        last->prev->next = tail;
+        delete last;
     }
 
     void deleteVal(int val) {
@@ -78,6 +89,15 @@ public:
             current = current->next;
         }
         return false;
+    }
+
+    void reverse() {
+        DNode* current = head;
+        while (current != nullptr) {
+            swap(current->next, current->prev);
+            current = current->prev; // was next before swap
+        }
+        swap(head, tail);
     }
 
     void displayForward() {
