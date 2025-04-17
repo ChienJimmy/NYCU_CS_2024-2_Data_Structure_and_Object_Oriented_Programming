@@ -63,6 +63,7 @@ public:
 
     bool search(int val) {
         Node* temp = head;
+        
         while (temp) {
             if (temp->data == val) return true;
             temp = temp->next;

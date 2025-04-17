@@ -53,7 +53,7 @@ public:
     }
 
     void removeFront() {
-        if (head->next == tail) return; // List is empty
+        if (head->next == tail) return;
         DNode* first = head->next;
         head->next = first->next;
         first->next->prev = head;
@@ -61,7 +61,7 @@ public:
     }
 
     void removeBack() {
-        if (tail->prev == head) return; // List is empty
+        if (tail->prev == head) return;
         DNode* last = tail->prev;
         tail->prev = last->prev;
         last->prev->next = tail;
@@ -95,7 +95,7 @@ public:
         DNode* current = head;
         while (current != nullptr) {
             swap(current->next, current->prev);
-            current = current->prev; // was next before swap
+            current = current->prev;
         }
         swap(head, tail);
     }

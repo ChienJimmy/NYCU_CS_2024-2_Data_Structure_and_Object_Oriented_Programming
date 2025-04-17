@@ -41,7 +41,7 @@ public:
         }
     }
 
-    // Delete the node the cursor points to
+    // Delete the node that the cursor points to
     void deleteCursor() {
         if (!cursor) return;
         CNode* current = cursor;
