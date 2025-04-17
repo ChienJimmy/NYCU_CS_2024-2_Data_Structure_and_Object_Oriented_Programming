@@ -4,87 +4,96 @@ using namespace std;
 class DNode {
 public:
     int data;
-    DNode* next;
     DNode* prev;
+    DNode* next;
 
-    DNode(int val) : data(val), next(nullptr), prev(nullptr) {}
+    DNode(int val = 0) : data(val), prev(nullptr), next(nullptr) {}
 };
 
 class DoublyLinkedList {
 private:
-    DNode* head;
+    DNode* head; // Sentinel head
+    DNode* tail; // Sentinel tail
 
 public:
-    DoublyLinkedList() : head(nullptr) {}
+    DoublyLinkedList() {
+        head = new DNode(); // Dummy head
+        tail = new DNode(); // Dummy tail
+        head->next = tail;
+        tail->prev = head;
+    }
+
+    ~DoublyLinkedList() {
+        DNode* current = head;
+        while (current) {
+            DNode* next = current->next;
+            delete current;
+            current = next;
+        }
+    }
 
     void append(int val) {
         DNode* newNode = new DNode(val);
-        if (!head) {
-            head = newNode;
-            return;
-        }
-        DNode* temp = head;
-        while (temp->next)
-            temp = temp->next;
-        temp->next = newNode;
-        newNode->prev = temp;
+        DNode* last = tail->prev;
+
+        last->next = newNode;
+        newNode->prev = last;
+        newNode->next = tail;
+        tail->prev = newNode;
     }
 
     void insertAt(int index, int val) {
         DNode* newNode = new DNode(val);
-        if (index == 0) {
-            newNode->next = head;
-            if (head) head->prev = newNode;
-            head = newNode;
-            return;
+        DNode* current = head->next;
+        for (int i = 0; i < index && current != tail; ++i) {
+            current = current->next;
         }
-        DNode* temp = head;
-        for (int i = 0; temp && i < index - 1; i++)
-            temp = temp->next;
-        if (!temp) return;
-        newNode->next = temp->next;
-        if (temp->next) temp->next->prev = newNode;
-        temp->next = newNode;
-        newNode->prev = temp;
+        if (current == nullptr) return;
+
+        DNode* prevNode = current->prev;
+        prevNode->next = newNode;
+        newNode->prev = prevNode;
+        newNode->next = current;
+        current->prev = newNode;
     }
 
     void deleteVal(int val) {
-        DNode* temp = head;
-        while (temp && temp->data != val)
-            temp = temp->next;
-        if (!temp) return;
-        if (temp->prev) temp->prev->next = temp->next;
-        else head = temp->next;
-        if (temp->next) temp->next->prev = temp->prev;
-        delete temp;
+        DNode* current = head->next;
+        while (current != tail) {
+            if (current->data == val) {
+                current->prev->next = current->next;
+                current->next->prev = current->prev;
+                delete current;
+                return;
+            }
+            current = current->next;
+        }
     }
 
     bool search(int val) {
-        DNode* temp = head;
-        while (temp) {
-            if (temp->data == val) return true;
-            temp = temp->next;
+        DNode* current = head->next;
+        while (current != tail) {
+            if (current->data == val)
+                return true;
+            current = current->next;
         }
         return false;
     }
 
     void displayForward() {
-        DNode* temp = head;
-        while (temp) {
-            cout << temp->data << " <-> ";
-            temp = temp->next;
+        DNode* current = head->next;
+        while (current != tail) {
+            cout << current->data << " <-> ";
+            current = current->next;
         }
         cout << "NULL\n";
     }
 
     void displayBackward() {
-        DNode* temp = head;
-        if (!temp) return;
-        while (temp->next)
-            temp = temp->next;
-        while (temp) {
-            cout << temp->data << " <-> ";
-            temp = temp->prev;
+        DNode* current = tail->prev;
+        while (current != head) {
+            cout << current->data << " <-> ";
+            current = current->prev;
         }
         cout << "NULL\n";
     }
