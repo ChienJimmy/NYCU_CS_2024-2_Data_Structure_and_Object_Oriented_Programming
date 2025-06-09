@@ -1,0 +1,38 @@
+2058 . Lab 1 - Q4
+Description
+Check if string is a palindrome.
+
+Palindrome: A palindrome is a string that reads the same backwards as forwards.
+
+Input Format
+The first line represents the number of string pairs.
+Each subsequent line contains one string.
+Every two strings form a string pair.
+
+3
+121
+1121
+123456
+654321
+246
+642
+
+Output Format
+For each string pair, output whether the first string (String one) is a palindrome, whether the second string (String two) is a palindrome, and whether the concatenation of the first and second string (String three) forms a palindrome.
+
+String one is a palindrome.
+String two is not a palindrome.
+String three is a palindrome.
+String one is not a palindrome.
+String two is not a palindrome.
+String three is a palindrome.
+String one is not a palindrome.
+String two is not a palindrome.
+String three is a palindrome.
+
+Hint
+Source
+Testdata
+#	Time Limit(ms)	Memory Limit(KiB)	Output Limit(KiB)	Score
+1	1000	262144	262144	0
+2	1000	262144	262144	100

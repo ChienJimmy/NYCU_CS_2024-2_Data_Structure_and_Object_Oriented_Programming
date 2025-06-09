@@ -1,0 +1,25 @@
+2048 . Lab 1 - Q1
+Description
+Simple input and output
+
+Input Format
+The input contains a string and an integer.
+The string denotes the name and the integer denotes the birth year.
+Read each line as input until -1 is encountered.
+
+Lemaon 2001
+-1
+
+Output Format
+For every input, print the name and the age in the format: 'Hello [Name]. Your age is [Age].'
+
+Hello Lemaon. Your age is 24.
+
+Hint
+Source
+Testdata
+#	Time Limit(ms)	Memory Limit(KiB)	Output Limit(KiB)	Score
+1	1000	262144	262144	0
+2	1000	262144	262144	33
+3	1000	262144	262144	33
+4	1000	262144	262144	34

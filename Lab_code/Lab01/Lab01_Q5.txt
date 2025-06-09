@@ -1,0 +1,60 @@
+2041 . Lab 1 - Q5
+Description
+Pointer & Reference
+
+Complete the problem using the provided template.
+You can only modify the code where there is a //TODO comment.
+
+#include <iostream>
+using namespace std;
+int add(int input1, int input2){
+//TODO
+
+}
+void sub(int *input1, int *input2, int *output){
+//TODO
+
+}
+void mul(int input1, int input2, int &output){
+//TODO
+
+}
+void div(int *input1, int input2, int &output){
+//TODO
+
+}
+int main() {
+ int num1;
+ int num2;
+
+ cin >> num1 >> num2;
+
+ int value = 0;
+ value = add(num1, num2);
+ cout << value << " ";
+ sub(&num1, &num2, &value);
+ cout << value << " ";
+ mul(num1, num2, value);
+ cout << value << " ";
+ div(&num1, num2, value);
+ cout << value << endl;
+ return 0;
+}
+Input Format
+Input two integers 𝑁 and 𝑀, where 0≤𝑁,𝑀≤10000.
+
+6 3
+
+Output Format
+Output the results of addition, subtraction, multiplication, and division.
+The result of division should only take the integer part, discarding the decimal part without rounding.
+
+9 3 18 2
+
+Hint
+Source
+Testdata
+#	Time Limit(ms)	Memory Limit(KiB)	Output Limit(KiB)	Score
+1	1000	262144	262144	100
+2	1000	262144	262144	100
+3	1000	262144	262144	100
