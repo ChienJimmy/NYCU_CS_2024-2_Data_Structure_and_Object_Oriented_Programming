@@ -36,4 +36,3 @@ Testdata
 #	Time Limit(ms)	Memory Limit(KiB)	Output Limit(KiB)	Score
 1	1000	262144	262144	0
 2	1000	262144	262144	100
-
