@@ -1,0 +1,58 @@
+2061 . Lab 2 - Q3
+Description
+Map
+
+Please use <map> to complete this problem.
+
+Input Format
+add [name] [score]:
+
+Add the student and his/her score into the database.
+If the student is already in the database, update the score.
+search [name]:
+
+Search the student in the database and print "[name] [score]".
+If the student is not in the database, print "Can't find [name]'s data.".
+delete [name]:
+
+Delete the student from the database.
+If the student is not in the database, print "Can't delete [name]'s data.".
+listall:
+
+Print all the data in the database.
+
+If the database is empty, print "The database is empty.".
+
+If the database is not empty, print: [name] [score]
+[name] [score]
+
+Output in lexicographic order by name (ASCII order).
+
+exit:
+
+The end of the input.
+add Alice 80
+add Alice 90
+search Alice
+delete Alice
+add Henry 70
+add Alex 60
+delete Grace
+search Grace
+listall
+exit
+
+Output Format
+Alice 90
+Can't delete Grace's data.
+Can't find Grace's data.
+Alex 60
+Henry 70
+
+Hint
+Source
+Testdata
+#	Time Limit(ms)	Memory Limit(KiB)	Output Limit(KiB)	Score
+1	1000	262144	262144	33
+2	1000	262144	262144	33
+3	1000	262144	262144	34

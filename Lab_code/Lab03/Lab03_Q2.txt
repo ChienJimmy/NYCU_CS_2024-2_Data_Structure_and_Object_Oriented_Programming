@@ -1,0 +1,121 @@
+2063 . Lab 3 - Q2
+Description
+Class
+
+Complete the problem using the provided template.
+You can only modify the code where there is a //TODO comment.
+
+addRecord([id], [name], [age]):
+
+Add the data into the database
+If data with the same ID already exists, output:
+Can't add this ID.
+ID [id] already exists.
+deleteRecord([id]):
+
+Delete the data with ID [id] from the database.
+If data with the same ID doesn't exist, output:
+Can't delete this ID.
+ID [id] does not exist.
+findRecord([id]):
+
+Find the date with ID [id] from the database and output ID: [id], Name: [name], Age: [age]
+If data with the same ID doesn't exist, output:
+Can't find this ID.
+ID [id] does not exist. 
+findRecord([name]):
+
+Find the date with name [name] from the database and output ID: [id], Name: [name], Age: [age]
+If data with the same name doesn't exist, output:
+Can't find this name.
+Name [name] does not exist.
+printAllRecords():
+
+Print all the data based on the order in which it was added.
+Format:
+All records:
+ID: [id], Name: [name], Age: [age]
+ID: [id], Name: [name], Age: [age]
+ID: [id], Name: [name], Age: [age]
+#include <iostream>
+#include <string>
+// TODO
+// You can't use <algorithm>
+using namespace std;
+
+class Database {
+private:
+    struct Record {
+        int id;
+        string name;
+        int age;
+    };
+
+    // TODO
+
+public:
+    // TODO
+};
+
+int main() {
+    Database db;
+
+    db.addRecord(1, "Alice", 20);
+    db.addRecord(2, "Bob", 22);
+    db.addRecord(3, "Charlie", 19);
+    db.addRecord(2, "Duplicate Bob", 25);
+    // Can't add this ID.
+    // ID 2 already exists.
+    db.printAllRecords();
+    // All records:
+    // ID: 1, Name: Alice, Age: 20
+    // ID: 2, Name: Bob, Age: 22
+    // ID: 3, Name: Charlie, Age: 19
+
+    db.deleteRecord(2);
+    db.deleteRecord(2);
+    // Can't delete this ID.
+    // ID 2 does not exist. 
+    db.printAllRecords();
+    // All records:
+    // ID: 1, Name: Alice, Age: 20
+    // ID: 3, Name: Charlie, Age: 19
+
+    db.findRecord(1);
+    // ID: 1, Name: Alice, Age: 20
+    db.findRecord(2);
+    // Can't find this ID.
+    // ID 2 does not exist.
+    db.findRecord("Alice");
+    // ID: 1, Name: Alice, Age: 20
+    db.findRecord("Bob");
+    // Can't find this name.
+    // Name Bob does not exist.
+
+    return 0;
+}
+Input Format
+Output Format
+Can't add this ID.
+ID 2 already exists.
+All records:
+ID: 1, Name: Alice, Age: 20
+ID: 2, Name: Bob, Age: 22
+ID: 3, Name: Charlie, Age: 19
+Can't delete this ID.
+ID 2 does not exist.
+All records:
+ID: 1, Name: Alice, Age: 20
+ID: 3, Name: Charlie, Age: 19
+ID: 1, Name: Alice, Age: 20
+Can't find this ID.
+ID 2 does not exist.
+ID: 1, Name: Alice, Age: 20
+Can't find this name.
+Name Bob does not exist.
+
+Hint
+Source
+Testdata
+#	Time Limit(ms)	Memory Limit(KiB)	Output Limit(KiB)	Score
+1	1000	262144	262144	100

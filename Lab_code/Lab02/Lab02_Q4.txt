@@ -1,0 +1,69 @@
+2044 . Lab 2 - Q4
+Description
+Multimap
+
+Create a phone book.
+Please use <multimap> to complete this problem.
+
+Input Format
+add [name] [phone number]:
+
+Add the name and the phone number into the database.
+A person can have multiple phone number.
+delete [name] [phone number]:
+
+Delete the data from the database.
+This data must exist in the database.
+delete [name] ALL:
+
+Delete all data related to this person.
+exit:
+
+The end of the input.
+
+List all the people and phone numbers in the phone book.
+
+If the phone book is empty, print "empty".
+
+If the phone book is not empty, print:
+phonebook:
+[name]:
+[phone number 1]
+[phone number 2 (if exist)]
+[name]:
+[phone number 1]
+[phone number 2 (if exist)]
+
+Output in lexicographic order by name (ASCII order).
+
+The phone numbers of the same person should be output in the order they were entered.
+
+add Alice 123456789
+add Alice 0987654321
+add Bob 5555555555
+add Charlie 123456780
+add Bob 6666666666
+delete Alice 123456789
+delete Bob ALL
+exit
+
+add Alice 123456789
+delete Alice 123456789
+exit
+
+Output Format
+phonebook:
+Alice:
+0987654321
+Charlie:
+123456780
+
+empty
+
+Hint
+Source
+Testdata
+#	Time Limit(ms)	Memory Limit(KiB)	Output Limit(KiB)	Score
+1	1000	262144	262144	100
+2	1000	262144	262144	100
+3	1000	262144	262144	100

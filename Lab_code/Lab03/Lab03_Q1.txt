@@ -1,0 +1,59 @@
+2062 . Lab 3 - Q1
+Description
+Class
+
+Complete the problem using the provided template.
+You can only modify the code where there is a //TODO comment.
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Student {
+private:
+    string name;
+    string id;
+    int grade;
+    float score;
+public:
+    Student(){}
+    Student(string name, string id, int grade, float score){
+        // TODO
+    }
+    string getName(){
+        // TODO
+    }
+    string getId(){
+        // TODO
+    }
+    int getGrade(){
+        // TODO
+    }
+    float getScore(){
+        // TODO
+    }
+};
+
+
+int main() {
+    // TODO
+
+    return 0;
+}
+Input Format
+The input is only one line: [name] [id] [grade] [score]
+
+Liam 001 1 0.1
+
+Output Format
+Format: [name]'s ID is [id], grade is [grade], and score is [score].
+
+Liam's ID is 001, grade is 1, and score is 0.1.
+
+Hint
+Source
+Testdata
+#	Time Limit(ms)	Memory Limit(KiB)	Output Limit(KiB)	Score
+1	1000	262144	262144	100
+2	1000	262144	262144	100

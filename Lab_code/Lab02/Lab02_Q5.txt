@@ -1,0 +1,43 @@
+2045 . Lab 2 - Q5
+Description
+Multiset
+
+Please use <multiset> to complete this problem.
+
+Input Format
+insert [number]:
+
+Insert the number in to the multiset.
+query [number a] [number b]:
+
+Print how many elements in the multiset are greater than or equal to a and less than or equal to b.
+delete [number a]
+
+Delete "one" of the number a from the multiset.
+Delete nothing if the number a does not exist in the multiset.
+exit
+
+The end of the input.
+The final multiset will not be empty.
+Print all the elements in the multiset in ascending order.
+insert 1
+insert 2
+insert 3
+insert 2
+query 1 2
+delete 1
+query 1 2
+exit
+
+Output Format
+3
+2
+2 2 3
+
+Hint
+Source
+Testdata
+#	Time Limit(ms)	Memory Limit(KiB)	Output Limit(KiB)	Score
+1	1000	262144	262144	100
+2	1000	262144	262144	100
+3	1000	262144	262144	100

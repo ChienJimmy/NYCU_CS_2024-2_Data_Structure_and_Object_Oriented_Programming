@@ -1,0 +1,160 @@
+2059 . Lab 3 - Q3
+Description
+Complete the problem using the provided template.
+You can only modify the code where there is a //TODO comment.
+
+Bucket(int fish_, int bread_, string name_) 
+Class constructor for the Bucket class.
+fish_ specifies the number of fish fish.
+bread_ specifies the number of loaves of bread bread.
+name_ specifies the name of Bucket name.
+Call show() and showAll() after construction.
+
+a->SwitchFish(Bucket* b)
+Switch the number of fish in Bucket a with the number of fish in Bucket b.
+After switching, use show() to print :
+“a's name has a's fish fish and a's bread loaves of bread.”
+“b's name has b's fish fish and b's bread loaves of bread.”
+
+a->SwitchBread(Bucket* b)
+Switch the number of loaves of bread in Bucket a with the number of loaves of bread in Bucket b.
+After switching, use show() to print:
+“a's name has a's fish fish and a's bread loaves of bread.”
+“b's name has b's fish fish and b's bread loaves of bread.”
+
+a->ModifyResources(int fish_, int bread_)
+Change the number of fish and the number of loaves of bread in Bucket a by fish_ and bread_, respectively.
+Call show() and showAll() after modifying.
+
+show()
+Print the name, the number of fish, and the number of loaves of bread in a Bucket as:
+“name has fish fish and bread loaves of bread.”
+
+showAll()
+Print the total number of fish and the total number of loaves of bread in all Buckets as:
+“In total, there are fish fish and bread loaves of bread.”
+
+Template
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Bucket {
+protected:
+    string name;
+    int fish, bread;
+
+public:
+    //TODO
+
+    Bucket(int fish_, int bread_, string name_) {
+        //TODO
+        this->show();
+        this->showAll();
+    }
+    
+    void SwitchFish(Bucket* b) {
+        //TODO
+    }
+
+    void SwitchBread(Bucket* b) {
+        //TODO
+    }
+
+    void ModifyResources(int fish_, int bread_) {
+        //TODO
+        this->show();
+        this->showAll();
+    }
+
+    void show() {
+        //TODO
+    }
+
+    void showAll() {
+        //TODO
+    }
+};
+
+//TODO
+
+
+
+int main() {
+    Bucket* c1 = new Bucket(1,2,"Bucket1"), *c2 = new Bucket(3,4,"Bucket2"), *c3 = new Bucket(5,6,"Bucket3");
+/*
+Bucket1 has 1 fish and 2 loaves of bread.
+In total, there are 1 fish and 2 loaves of bread.
+Bucket2 has 3 fish and 4 loaves of bread.
+In total, there are 4 fish and 6 loaves of bread.
+Bucket3 has 5 fish and 6 loaves of bread.
+In total, there are 9 fish and 12 loaves of bread.
+*/
+    c1->ModifyResources(-1,4);
+/*
+Bucket1 has 0 fish and 6 loaves of bread.
+In total, there are 8 fish and 16 loaves of bread.
+*/
+    c1->SwitchBread(c2);
+/*
+Bucket1 has 0 fish and 4 loaves of bread.
+Bucket2 has 3 fish and 6 loaves of bread.
+*/
+    c3->ModifyResources(-2,-3);
+/*
+Bucket3 has 3 fish and 3 loaves of bread.
+In total, there are 6 fish and 13 loaves of bread.
+*/
+    c3->SwitchFish(c1);
+/*
+Bucket3 has 0 fish and 3 loaves of bread.
+Bucket1 has 3 fish and 4 loaves of bread.
+*/
+    c2->ModifyResources(10,13);
+/*
+Bucket2 has 13 fish and 19 loaves of bread.
+In total, there are 16 fish and 26 loaves of bread.
+*/
+    c2->SwitchBread(c3);
+/*
+Bucket2 has 13 fish and 3 loaves of bread.
+Bucket3 has 0 fish and 19 loaves of bread.
+*/
+    c1->ModifyResources(0,0);
+/*
+Bucket1 has 3 fish and 4 loaves of bread.
+In total, there are 16 fish and 26 loaves of bread.
+*/
+    delete c1;
+    delete c2;
+    delete c3;
+    return 0;
+}
+Input Format
+Output Format
+Bucket1 has 1 fish and 2 loaves of bread.
+In total, there are 1 fish and 2 loaves of bread.
+Bucket2 has 3 fish and 4 loaves of bread.
+In total, there are 4 fish and 6 loaves of bread.
+Bucket3 has 5 fish and 6 loaves of bread.
+In total, there are 9 fish and 12 loaves of bread.
+Bucket1 has 0 fish and 6 loaves of bread.
+In total, there are 8 fish and 16 loaves of bread.
+Bucket1 has 0 fish and 4 loaves of bread.
+Bucket2 has 3 fish and 6 loaves of bread.
+Bucket3 has 3 fish and 3 loaves of bread.
+In total, there are 6 fish and 13 loaves of bread.
+Bucket3 has 0 fish and 3 loaves of bread.
+Bucket1 has 3 fish and 4 loaves of bread.
+Bucket2 has 13 fish and 19 loaves of bread.
+In total, there are 16 fish and 26 loaves of bread.
+Bucket2 has 13 fish and 3 loaves of bread.
+Bucket3 has 0 fish and 19 loaves of bread.
+Bucket1 has 3 fish and 4 loaves of bread.
+In total, there are 16 fish and 26 loaves of bread.
+
+Hint
+Source
+Testdata
+#	Time Limit(ms)	Memory Limit(KiB)	Output Limit(KiB)	Score
+1	1000	262144	262144	100

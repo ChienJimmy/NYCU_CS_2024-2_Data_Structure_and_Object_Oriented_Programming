@@ -1,0 +1,51 @@
+2042 . Lab 2 - Q1
+Description
+List
+
+LRU (Least Recently Used) cache is a common caching algorithm used to manage limited-capacity cache memory, ensuring the storage of data most likely to be reused.
+Its core functions are removing the least used data and maintaining the order of usage frequency.
+Please use <list> to complete this problem.
+
+Input Format
+The input contains an integer and several operations.
+The first line is an integer, representing the capacity of the LRU cache.
+The following lines represent the operations of the LRU cache.
+Each line contains a string operation and an integer.
+The operations could be insert, read or exit.
+
+The insert operation:
+
+If the number already exists in the LRU cache, move it to the front of the LRU cache.
+If the number does not exist in the LRU cache, put it to the front of the LRU cache.
+The read operation:
+
+If the number already exists in the LRU cache, move it to the front of the LRU cache.
+If the number does not exist in the LRU cache, print "key [number] is not in LRU". (You don't need to add it to the LRU cache.)
+The exit operation:
+
+The end of the input.
+Print the elements in the LRU cache in the format: "LRU [newest element->oldest element]".
+3
+insert 10
+insert 20
+insert 30
+insert 40
+read 20
+read 30
+read 50
+insert 50
+insert 20
+exit
+
+Output Format
+key 50 is not in LRU
+LRU 20 50 30
+
+Hint
+Source
+Testdata
+#	Time Limit(ms)	Memory Limit(KiB)	Output Limit(KiB)	Score
+1	1000	262144	262144	100
+2	1000	262144	262144	100
+3	1000	262144	262144	100
+4	1000	262144	262144	100
